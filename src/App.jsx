@@ -670,7 +670,7 @@ function App() {
           <div className="birthday-content">
 
             <span className="birthday-word jujuuu">
-              Happy Birthday Jujuuu!
+              Happy Birthday Jujuuu❤️!
             </span>
 
           </div>
