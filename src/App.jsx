@@ -656,7 +656,6 @@ function App() {
 
       )}
 
-
       {/* =================================
           FINAL MESSAGE
       ================================= */}
@@ -669,16 +668,36 @@ function App() {
 
           <div className="birthday-content">
 
-            <span className="birthday-word jujuuu">
-              Happy Birthday Jujuuu❤️!
-            </span>
+            <div className="birthday-card">
+
+              <div className="birthday-title">
+                Happy Birthday
+              </div>
+
+              <div className="jujuuu">
+                Jujuuu!!
+              </div>
+
+              <div className="birthday-cake">
+                🎂
+              </div>
+
+              <div className="birthday-copy">
+                Stay blessed<br />
+                and smile a lot more...
+              </div>
+
+              <div className="birthday-love">
+                <span>♡</span>
+              </div>
+
+            </div>
 
           </div>
 
         </div>
 
       )}
-
 
       {/* =================================
           START SCREEN

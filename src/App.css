@@ -11,6 +11,7 @@
   overflow: hidden;
 
   background: #967bb6;
+
   /* zoom: .8; */
 
   perspective: 1500px;
@@ -45,6 +46,7 @@
   position: absolute;
 
   inset: 0;
+
   margin-top: -25px;
 
   width: 100%;
@@ -88,7 +90,6 @@
 
   opacity: 0;
 }
-
 
 .photo-card:active {
   cursor: grabbing;
@@ -193,19 +194,13 @@
 @keyframes imageExpand {
 
   from {
-
     transform: scale(0.8);
-
     opacity: 0;
-
   }
 
   to {
-
     transform: scale(1);
-
     opacity: 1;
-
   }
 
 }
@@ -261,7 +256,8 @@
 
   transition:
     all 0.3s ease;
-    margin-top: -125px;
+
+  margin-top: -125px;
 }
 
 
@@ -342,7 +338,6 @@
 @keyframes wordRevealLeft {
 
   from {
-
     opacity: 0;
 
     transform:
@@ -350,11 +345,9 @@
 
     filter:
       blur(15px);
-
   }
 
   to {
-
     opacity: 1;
 
     transform:
@@ -362,7 +355,6 @@
 
     filter:
       blur(0);
-
   }
 
 }
@@ -371,7 +363,6 @@
 @keyframes wordRevealRight {
 
   from {
-
     opacity: 0;
 
     transform:
@@ -379,11 +370,9 @@
 
     filter:
       blur(15px);
-
   }
 
   to {
-
     opacity: 1;
 
     transform:
@@ -391,7 +380,6 @@
 
     filter:
       blur(0);
-
   }
 
 }
@@ -400,7 +388,6 @@
 @keyframes nameReveal {
 
   from {
-
     opacity: 0;
 
     transform:
@@ -408,11 +395,9 @@
 
     filter:
       blur(10px);
-
   }
 
   to {
-
     opacity: 1;
 
     transform:
@@ -420,7 +405,6 @@
 
     filter:
       blur(0);
-
   }
 
 }
@@ -465,75 +449,66 @@
 @media (max-width: 768px) {
 
   .photo-card {
-
     width: 135px;
     height: 180px;
-
   }
 
 
   .photo-card img {
-
     border-radius: 10px;
-
   }
 
 
   .expanded-overlay img {
-
     max-width: 92vw;
 
     max-height: 80vh;
-
   }
 
 
   .restart-button {
-
     width: 36px;
     height: 36px;
 
     bottom: 14px;
     right: 14px;
-
   }
 
 
   .happiest {
-
     font-size: 52px;
-
   }
 
 
   .birthday-final {
-
     font-size: 76px;
 
     letter-spacing: -4px;
-
   }
 
 
   .jujuuu {
-
     font-size: 72px;
-
   }
 
 }
+
+
 /* ========================================
    FINAL BIRTHDAY SCREEN
 ======================================== */
 
 .birthday-message {
   position: absolute;
+
   inset: 0;
 
   z-index: 10000;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   overflow: hidden;
@@ -586,6 +561,7 @@
   z-index: 2;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -594,22 +570,97 @@
 }
 
 
-.birthday-word {
-  display: block;
+.birthday-card {
+  min-height: 100vh;
 
-  line-height: 0.85;
+  width: 100%;
 
-  opacity: 0;
+  padding: 55px 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255, 255, 255, .25) 0 3px,
+      transparent 4px),
+
+    radial-gradient(circle at 85% 30%,
+      rgba(255, 255, 255, .2) 0 2px,
+      transparent 3px),
+
+    radial-gradient(circle at 25% 75%,
+      rgba(255, 255, 255, .2) 0 2px,
+      transparent 3px),
+
+    linear-gradient(145deg,
+      #c7a9df,
+      #a98ac7);
+
+  color: #35104f;
+
+  overflow: hidden;
+
+  position: relative;
 }
 
 
-/* ========================================
-   Jujuuu!
-======================================== */
+/* Decorative floating hearts/stars */
 
-.jujuuu {
-  margin-top: -125px;
-  line-height: 1.2;
+.birthday-card::before {
+  content:
+    "✦  ♡  ✧  ♡  ✦";
+
+  position: absolute;
+
+  top: 55px;
+
+  left: 0;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 22px;
+
+  letter-spacing: 24px;
+
+  color:
+    rgba(255, 255, 255, .7);
+
+  transform:
+    rotate(-5deg);
+}
+
+
+.birthday-card::after {
+  content: "♡";
+
+  position: absolute;
+
+  right: 35px;
+
+  bottom: 70px;
+
+  font-size: 90px;
+
+  color:
+    rgba(255, 255, 255, .12);
+
+  transform:
+    rotate(15deg);
+}
+
+
+/* Happy Birthday */
+
+.birthday-title {
+  margin: 0;
 
   font-family:
     "Brush Script MT",
@@ -617,21 +668,173 @@
     cursive;
 
   font-size:
-    clamp(60px, 9vw, 140px);
+    clamp(42px, 12vw, 82px);
 
-  /*
-    Soft blush instead of neon pink
-  */
+  line-height: .9;
 
-  color:
-    #2a094f;
+  color: #35104f;
+
+  text-align: center;
 
   transform:
     rotate(-4deg);
 
   text-shadow:
-    0 5px 25px rgba(84, 57, 110, 0.28);
+    0 4px 15px rgba(63, 25, 86, .18);
+}
+
+
+/* Jujuuu */
+
+.jujuuu {
+  margin: 8px 0 28px;
+
+  font-family:
+    "Brush Script MT",
+    "Segoe Script",
+    cursive;
+
+  font-size:
+    clamp(64px, 17vw, 120px);
+
+  line-height: .8;
+
+  color: #35104f;
+
+  text-align: center;
+
+  transform:
+    rotate(-5deg);
+
+  text-shadow:
+    0 5px 20px rgba(63, 25, 86, .25);
+
+  position: relative;
+}
+
+
+/* little heart above Jujuuu */
+
+.jujuuu::after {
+  content: "♥";
+
+  position: absolute;
+
+  top: -28px;
+
+  right: 5px;
+
+  font-family: sans-serif;
+
+  font-size: 25px;
+
+  color: #ef6f91;
+
+  transform:
+    rotate(15deg);
+}
+
+
+/* Cake */
+
+.birthday-cake {
+  font-size:
+    clamp(65px, 18vw, 100px);
+
+  margin: 5px 0 12px;
+
+  filter:
+    drop-shadow(0 10px 15px rgba(66, 31, 82, .2));
 
   animation:
-    nameReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+    floatCake 3s ease-in-out infinite;
+}
+
+
+@keyframes floatCake {
+
+  0%,
+  100% {
+    transform:
+      translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform:
+      translateY(-7px) rotate(2deg);
+  }
+
+}
+
+
+/* Main message */
+
+.birthday-copy {
+  max-width: 340px;
+
+  margin: 0 auto;
+
+  font-family:
+    "Segoe Script",
+    "Brush Script MT",
+    cursive;
+
+  font-size:
+    clamp(25px, 7vw, 40px);
+
+  line-height: 1.15;
+
+  color: #35104f;
+
+  text-align: center;
+
+  transform:
+    rotate(-2deg);
+
+  text-shadow:
+    0 3px 10px rgba(63, 25, 86, .15);
+}
+
+
+/* Final cute line */
+
+.birthday-love {
+  margin-top: 20px;
+
+  font-family:
+    "Segoe Script",
+    cursive;
+
+  font-size:
+    clamp(20px, 5vw, 30px);
+
+  color: #6b315f;
+
+  text-align: center;
+}
+
+
+.birthday-love span {
+  display: inline-block;
+
+  font-size: 1.3em;
+
+  margin: 0 5px;
+
+  animation:
+    heartbeat 1.5s ease-in-out infinite;
+}
+
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+
 }
