@@ -1,0 +1,637 @@
+/* ========================================
+   APP
+======================================== */
+
+.app {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: #967bb6;
+  /* zoom: .8; */
+
+  perspective: 1500px;
+}
+
+
+/* ========================================
+   VIDEO
+======================================== */
+
+.birthday-video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: 1;
+}
+
+
+/* ========================================
+   GALLERY
+======================================== */
+
+.gallery {
+  position: absolute;
+
+  inset: 0;
+  margin-top: -25px;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  perspective: 1500px;
+}
+
+
+/* ========================================
+   PHOTO CARD
+======================================== */
+
+.photo-card {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 280px;
+  height: 360px;
+
+  pointer-events: auto;
+
+  cursor: grab;
+
+  touch-action: none;
+
+  user-select: none;
+
+  transform-origin: center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+
+  opacity: 0;
+}
+
+
+.photo-card:active {
+  cursor: grabbing;
+}
+
+
+/* IMAGE */
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+
+  opacity: 0;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55);
+
+  transition:
+    opacity 0.35s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* IMAGE LOADED */
+
+.photo-card.loaded img {
+  opacity: 1;
+}
+
+
+/* ========================================
+   EXPANDED PHOTO
+======================================== */
+
+.expanded-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 5000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(0, 0, 0, 0.85);
+
+  backdrop-filter:
+    blur(12px);
+
+  animation:
+    overlayFade 0.3s ease;
+}
+
+
+.expanded-overlay img {
+  max-width: 88vw;
+
+  max-height: 85vh;
+
+  object-fit: contain;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.8);
+
+  animation:
+    imageExpand 0.4s cubic-bezier(0.16,
+      1,
+      0.3,
+      1);
+}
+
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes imageExpand {
+
+  from {
+
+    transform: scale(0.8);
+
+    opacity: 0;
+
+  }
+
+  to {
+
+    transform: scale(1);
+
+    opacity: 1;
+
+  }
+
+}
+
+
+/* ========================================
+   START SCREEN
+======================================== */
+
+.start-screen {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(0, 0, 0, 0.35);
+
+  backdrop-filter:
+    blur(5px);
+}
+
+
+.start-button {
+  padding:
+    18px 40px;
+
+  border-radius: 100px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  cursor: pointer;
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    all 0.3s ease;
+    margin-top: -125px;
+}
+
+
+.start-button:hover {
+
+  transform:
+    scale(1.08);
+
+  background:
+    rgba(255, 255, 255, 0.2);
+
+}
+
+
+/* ========================================
+   RESTART BUTTON
+======================================== */
+
+.restart-button {
+  position: absolute;
+
+  bottom: 20px;
+  right: 20px;
+
+  z-index: 2000;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.25);
+
+  background:
+    rgba(0, 0, 0, 0.4);
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  opacity: 0.6;
+
+  transition:
+    all 0.3s ease;
+}
+
+
+.restart-button:hover {
+
+  opacity: 1;
+
+  transform:
+    rotate(180deg);
+
+}
+
+
+/* ========================================
+   FINAL ANIMATIONS
+======================================== */
+
+@keyframes finalFadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes wordRevealLeft {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateX(-100px);
+
+    filter:
+      blur(15px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateX(0);
+
+    filter:
+      blur(0);
+
+  }
+
+}
+
+
+@keyframes wordRevealRight {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateX(100px);
+
+    filter:
+      blur(15px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateX(0);
+
+    filter:
+      blur(0);
+
+  }
+
+}
+
+
+@keyframes nameReveal {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(50px) rotate(-4deg) scale(0.8);
+
+    filter:
+      blur(10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0) rotate(-4deg) scale(1);
+
+    filter:
+      blur(0);
+
+  }
+
+}
+
+
+@keyframes glowPulse {
+
+  0% {
+
+    transform:
+      scale(0.85);
+
+    opacity: 0.5;
+
+  }
+
+  50% {
+
+    transform:
+      scale(1.1);
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform:
+      scale(0.85);
+
+    opacity: 0.5;
+
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  .photo-card {
+
+    width: 135px;
+    height: 180px;
+
+  }
+
+
+  .photo-card img {
+
+    border-radius: 10px;
+
+  }
+
+
+  .expanded-overlay img {
+
+    max-width: 92vw;
+
+    max-height: 80vh;
+
+  }
+
+
+  .restart-button {
+
+    width: 36px;
+    height: 36px;
+
+    bottom: 14px;
+    right: 14px;
+
+  }
+
+
+  .happiest {
+
+    font-size: 52px;
+
+  }
+
+
+  .birthday-final {
+
+    font-size: 76px;
+
+    letter-spacing: -4px;
+
+  }
+
+
+  .jujuuu {
+
+    font-size: 72px;
+
+  }
+
+}
+/* ========================================
+   FINAL BIRTHDAY SCREEN
+======================================== */
+
+.birthday-message {
+  position: absolute;
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 50% 35%,
+      #ad94ca 0%,
+      #967bb6 45%,
+      #80659f 100%);
+
+  animation:
+    finalFadeIn 1s ease forwards;
+}
+
+
+/* Dreamy ambient glow */
+
+.birthday-glow {
+  position: absolute;
+
+  width: 90vw;
+  height: 90vw;
+
+  max-width: 900px;
+  max-height: 900px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle,
+      rgba(255, 248, 240, 0.28) 0%,
+      rgba(232, 199, 232, 0.18) 30%,
+      rgba(205, 184, 232, 0.08) 50%,
+      transparent 70%);
+
+  filter: blur(50px);
+
+  animation:
+    glowPulse 5s ease-in-out infinite;
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.birthday-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+.birthday-word {
+  display: block;
+
+  line-height: 0.85;
+
+  opacity: 0;
+}
+
+
+/* ========================================
+   Jujuuu!
+======================================== */
+
+.jujuuu {
+  margin-top: -125px;
+  line-height: 1.2;
+
+  font-family:
+    "Brush Script MT",
+    "Segoe Script",
+    cursive;
+
+  font-size:
+    clamp(60px, 9vw, 140px);
+
+  /*
+    Soft blush instead of neon pink
+  */
+
+  color:
+    #2a094f;
+
+  transform:
+    rotate(-4deg);
+
+  text-shadow:
+    0 5px 25px rgba(84, 57, 110, 0.28);
+
+  animation:
+    nameReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+}
